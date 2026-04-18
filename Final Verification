@@ -1,0 +1,4 @@
+--check employees
+SELECT EmpID, EmpName, BasicSalary, IncrementRate, UpdatedSalary FROM EMPLOYEE;
+--check salary logs
+SELECT * FROM SALARY_LOG;
