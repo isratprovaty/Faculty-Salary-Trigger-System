@@ -1,0 +1,9 @@
+INSERT INTO EMPLOYEE (EmpID, EmpName, BasicSalary, StartDate, NoOfPub) VALUES 
+(1, 'Dr. Ariful', 50000, '2020-01-01', 5),  -- Case 1: >1yr, >4 pub
+(2, 'Dr. Sumaiya', 60000, '2022-05-10', 2),  -- Case 2: >1yr, 2 pub
+(3, 'Mr. Rakib', 45000, '2021-03-15', 1),    -- Case 3: >1yr, 1 pub
+(4, 'Ms. Tania', 55000, '2023-11-20', 6),    -- Case 4: <1yr, >4 pub (0%)
+(5, 'Dr. Zaman', 70000, '2019-06-01', 0),    -- Case 5: >1yr, 0 pub (0%)
+(6, 'Prof. Karim', 80000, '2015-01-01', 10),
+(7, 'Lec. Sadia', 35000, '2024-02-01', 3),
+(8, 'Dr. Nasir', 65000, '2020-08-12', 4);
