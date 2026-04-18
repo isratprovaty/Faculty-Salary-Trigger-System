@@ -1,0 +1,13 @@
+DELIMITER //
+
+CREATE TRIGGER trg_log_salary_change
+AFTER UPDATE ON EMPLOYEE
+FOR EACH ROW
+BEGIN
+    IF OLD.UpdatedSalary != NEW.UpdatedSalary OR (OLD.UpdatedSalary IS NULL AND NEW.UpdatedSalary IS NOT NULL) THEN
+        INSERT INTO SALARY_LOG (EmpID, OldSalary, NewSalary, Note)
+        VALUES (NEW.EmpID, OLD.BasicSalary, NEW.UpdatedSalary, CONCAT('Increment of ', NEW.IncrementRate, '% applied'));
+    END IF;
+END //
+
+DELIMITER ;
