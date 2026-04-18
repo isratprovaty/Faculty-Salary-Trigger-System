@@ -16,7 +16,7 @@ An automated SQL database system that manages faculty increments and audit loggi
 
 ### 1. Database & Table Creation
 
-![Database Creation](createdatabse.png).
+![Create Database](createdatabse.png).
 
 ![Table Creation](createtable.png).
 
