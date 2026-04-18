@@ -1,0 +1,25 @@
+DELIMITER //
+
+CREATE TRIGGER trg_calculate_increment
+BEFORE UPDATE ON EMPLOYEE
+FOR EACH ROW
+BEGIN
+    DECLARE job_duration_years INT;
+    SET job_duration_years = TIMESTAMPDIFF(YEAR, OLD.StartDate, CURDATE());
+
+    -- Apply Policy
+    IF job_duration_years > 1 AND NEW.NoOfPub > 4 THEN
+        SET NEW.IncrementRate = 20.00;
+    ELSEIF job_duration_years > 1 AND (NEW.NoOfPub = 2 OR NEW.NoOfPub = 3) THEN
+        SET NEW.IncrementRate = 10.00;
+    ELSEIF job_duration_years > 1 AND NEW.NoOfPub = 1 THEN
+        SET NEW.IncrementRate = 5.00;
+    ELSE
+        SET NEW.IncrementRate = 0.00;
+    END IF;
+
+    -- Calculate Final Salary
+    SET NEW.UpdatedSalary = OLD.BasicSalary + (OLD.BasicSalary * (NEW.IncrementRate / 100));
+END //
+
+DELIMITER ;
