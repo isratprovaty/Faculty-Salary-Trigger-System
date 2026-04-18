@@ -7,3 +7,9 @@ INSERT INTO EMPLOYEE (EmpID, EmpName, BasicSalary, StartDate, NoOfPub) VALUES
 (6, 'Prof. Karim', 80000, '2015-01-01', 10),
 (7, 'Lec. Sadia', 35000, '2024-02-01', 3),
 (8, 'Dr. Nasir', 65000, '2020-08-12', 4);
+
+-- Updating 4 employees to cover all policy cases
+UPDATE EMPLOYEE SET NoOfPub = 5 WHERE EmpID = 1; -- 20%
+UPDATE EMPLOYEE SET NoOfPub = 2 WHERE EmpID = 2; -- 10%
+UPDATE EMPLOYEE SET NoOfPub = 1 WHERE EmpID = 3; -- 5%
+UPDATE EMPLOYEE SET NoOfPub = 6 WHERE EmpID = 4; -- 0% (Duration < 1yr)
